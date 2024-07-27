@@ -16,5 +16,18 @@ CreateThread(function()
                 if not input then return end lib.callback.await('dalle:identitychange', false, input, k)
             end
         end
+
+        -- { Create blip } --
+		local Blip = AddBlipForCoord(v.coords)
+		SetBlipSprite(Blip, v.blip.blipID) 
+		SetBlipDisplay(Blip, 2)
+		SetBlipScale(Blip, 0.6)
+		SetBlipColour(Blip, v.blip.blipColour)
+		SetBlipScale(blip,0.6)
+		SetBlipAlpha(Blip, 255)
+		SetBlipAsShortRange(Blip, true)
+		BeginTextCommandSetBlipName("String")
+		AddTextComponentString(v.name)
+		EndTextCommandSetBlipName(Blip)
     end
 end)
